@@ -48,9 +48,9 @@ class CustomerResource extends Resource
                                 'sm' => 2,
                             ]),
                         self::getContentEditor('bio'),
-                        Forms\Components\TextInput::make('github_handle')
+                        Forms\Components\TextInput::make('no_hp')
                             ->label('GitHub'),
-                        Forms\Components\TextInput::make('twitter_handle')
+                        Forms\Components\TextInput::make('no_identitas')
                             ->label('Twitter'),
                     ])
                     ->columns([
@@ -87,9 +87,9 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('github_handle')
+                Tables\Columns\TextColumn::make('no_hp')
                     ->label('GitHub'),
-                Tables\Columns\TextColumn::make('twitter_handle')
+                Tables\Columns\TextColumn::make('no_identitas')
                     ->label('Twitter'),
             ])
             ->filters([

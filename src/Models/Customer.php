@@ -25,8 +25,8 @@ class Customer extends Model
         'email',
         'photo',
         'bio',
-        'github_handle',
-        'twitter_handle',
+        'no_hp',
+        'no_identitas',
     ];
 
     /**
