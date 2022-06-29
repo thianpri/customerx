@@ -25,7 +25,7 @@ class JawabanResource extends Resource
 
     protected static ?string $slug = 'sertifikat/jawaban';
 
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $recordTitleAttribute = 'noepi';
 
     protected static ?string $navigationGroup = 'Sertifikat';
 
@@ -39,7 +39,7 @@ class JawabanResource extends Resource
             ->schema([
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')
+                        Forms\Components\TextInput::make('noepi')
                             ->required()
                             ->reactive()
                             ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state))),
@@ -66,7 +66,7 @@ class JawabanResource extends Resource
                                 'sm' => 2,
                             ]),
 
-                        self::getContentEditor('content'),
+                        self::getContentEditor('isi'),
 
                         Forms\Components\BelongsToSelect::make('sertifikat_customer_id')
                             ->relationship('customer', 'name')
@@ -109,9 +109,9 @@ class JawabanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('file_ sertifikat ')
+                Tables\Columns\ImageColumn::make('filex')
                     ->rounded(),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('noepi')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('customer.name')
@@ -169,7 +169,7 @@ class JawabanResource extends Resource
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['title', 'slug', 'customer.name', 'category.name'];
+        return ['noepi', 'slug', 'customer.name', 'category.name'];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array

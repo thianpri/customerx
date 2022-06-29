@@ -24,11 +24,11 @@ class Jawaban extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'noepi',
         'slug',
         'excerpt',
-        'file_ sertifikat ',
-        'content',
+        'filex',
+        'isi',
         'published_at',
     ];
 
@@ -43,12 +43,12 @@ class Jawaban extends Model
      * @var array<string>
      */
     protected $appends = [
-        'file_sertifikat_url',
+        'filex_url',
     ];
 
     public function file_sertifikatUrl(): Attribute
     {
-        return Attribute::get(fn () => asset(Storage::url($this->file_sertifikat )));
+        return Attribute::get(fn () => asset(Storage::url($this->filex)));
     }
 
     public function scopePublished(Builder $query)
