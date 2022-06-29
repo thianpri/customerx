@@ -17,7 +17,7 @@ Make sure you have installed the admin panel before you continue with the instal
 ## Supported Versions
 PHP: `8.1`
 
-Laravel: `9`
+Laravel: `9.2`
 
 ## Installation
 You can install the package via composer:
