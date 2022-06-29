@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Models;
+namespace thianpri\FilamentSertifikat\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Tags\HasTags;
 
-class Post extends Model
+class Jawaban extends Model
 {
     use HasFactory;
     use HasTags;
@@ -18,7 +18,7 @@ class Post extends Model
     /**
      * @var string
      */
-    protected $table = 'lab_posts';
+    protected $table = 'sertifikat_jawaban';
 
     /**
      * @var array<int, string>
@@ -27,7 +27,7 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
-        'banner',
+        'file_ sertifikat ',
         'content',
         'published_at',
     ];
@@ -43,12 +43,12 @@ class Post extends Model
      * @var array<string>
      */
     protected $appends = [
-        'banner_url',
+        'file_ sertifikat _url',
     ];
 
-    public function bannerUrl(): Attribute
+    public function file_ sertifikat Url(): Attribute
     {
-        return Attribute::get(fn () => asset(Storage::url($this->banner)));
+        return Attribute::get(fn () => asset(Storage::url($this->file_ sertifikat )));
     }
 
     public function scopePublished(Builder $query)
@@ -61,13 +61,13 @@ class Post extends Model
         return $query->whereNull('published_at');
     }
 
-    public function author(): BelongsTo
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(Author::class, 'lab_author_id');
+        return $this->belongsTo(Customer::class, 'sertifikat_customer_id');
     }
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'lab_category_id');
+        return $this->belongsTo(Category::class, 'sertifikat_category_id');
     }
 }

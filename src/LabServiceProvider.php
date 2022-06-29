@@ -1,28 +1,28 @@
 <?php
 
-namespace thianpri\FilamentLab;
+namespace thianpri\FilamentSertifikat;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use thianpri\FilamentLab\Commands\InstallCommand;
-use thianpri\FilamentLab\Resources\AuthorResource;
-use thianpri\FilamentLab\Resources\CategoryResource;
-use thianpri\FilamentLab\Resources\PostResource;
+use thianpri\FilamentSertifikat\Commands\InstallCommand;
+use thianpri\FilamentSertifikat\Resources\CustomerResource;
+use thianpri\FilamentSertifikat\Resources\CategoryResource;
+use thianpri\FilamentSertifikat\Resources\JawabanResource;
 
-class LabServiceProvider extends PluginServiceProvider
+class SertifikatServiceProvider extends PluginServiceProvider
 {
     protected array $resources = [
-        AuthorResource::class,
+        CustomerResource::class,
         CategoryResource::class,
-        PostResource::class,
+        JawabanResource::class,
     ];
 
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-lab')
+            ->name('filament-sertifikat')
             ->hasConfigFile()
             ->hasCommand(InstallCommand::class)
-            ->hasMigration('create_filament_lab_tables');
+            ->hasMigration('create_filament_sertifikat_tables');
     }
 }

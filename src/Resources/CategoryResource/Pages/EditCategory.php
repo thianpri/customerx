@@ -1,9 +1,9 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources\CategoryResource\Pages;
+namespace thianpri\FilamentSertifikat\Resources\CategoryResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
-use thianpri\FilamentLab\Resources\CategoryResource;
+use thianpri\FilamentSertifikat\Resources\CategoryResource;
 
 class EditCategory extends EditRecord
 {

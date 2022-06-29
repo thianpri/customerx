@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Commands;
+namespace thianpri\FilamentSertifikat\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'filament-lab:install';
+    protected $signature = 'filament-sertifikat:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install all of the lab resources';
+    protected $description = 'Install all of the sertifikat resources';
 
     /**
      * Create a new command instance.
@@ -37,14 +37,14 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->comment('Publishing Lab Configuration...');
-        $this->callSilent('vendor:publish', ['--tag' => 'filament-lab-config']);
+        $this->comment('Publishing Sertifikat Configuration...');
+        $this->callSilent('vendor:publish', ['--tag' => 'filament-sertifikat-config']);
 
-        $this->comment('Publishing Filament Lab Migrations...');
-        $this->callSilent('vendor:publish', ['--tag' => 'filament-lab-migrations']);
+        $this->comment('Publishing Filament Sertifikat Migrations...');
+        $this->callSilent('vendor:publish', ['--tag' => 'filament-sertifikat-migrations']);
         $this->callSilent('vendor:publish', ['--tag' => 'tags-migrations']);
 
-        $this->info('Filament lab was installed successfully.');
+        $this->info('Filament sertifikat was installed successfully.');
 
         return 0;
     }

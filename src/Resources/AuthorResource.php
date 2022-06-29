@@ -1,27 +1,27 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources;
+namespace thianpri\FilamentSertifikat\Resources;
 
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use thianpri\FilamentLab\Models\Author;
-use thianpri\FilamentLab\Resources\AuthorResource\Pages;
-use thianpri\FilamentLab\Traits\HasContentEditor;
+use thianpri\FilamentSertifikat\Models\Customer;
+use thianpri\FilamentSertifikat\Resources\CustomerResource\Pages;
+use thianpri\FilamentSertifikat\Traits\HasContentEditor;
 
-class AuthorResource extends Resource
+class CustomerResource extends Resource
 {
     use HasContentEditor;
 
-    protected static ?string $model = Author::class;
+    protected static ?string $model = Customer::class;
 
-    protected static ?string $slug = 'lab/authors';
+    protected static ?string $slug = 'sertifikat/customers';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationGroup = 'Lab';
+    protected static ?string $navigationGroup = 'Sertifikat';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -38,7 +38,7 @@ class AuthorResource extends Resource
                         Forms\Components\TextInput::make('email')
                             ->required()
                             ->email()
-                            ->unique(Author::class, 'email', fn ($record) => $record),
+                            ->unique(Customer::class, 'email', fn ($record) => $record),
                         Forms\Components\FileUpload::make('photo')
                             ->image()
                             ->maxSize(5120)
@@ -62,12 +62,12 @@ class AuthorResource extends Resource
                         Forms\Components\Placeholder::make('created_at')
                             ->label('Created at')
                             ->content(fn (
-                                ?Author $record
+                                ?Customer $record
                             ): string => $record ? $record->created_at->diffForHumans() : '-'),
                         Forms\Components\Placeholder::make('updated_at')
                             ->label('Last modified at')
                             ->content(fn (
-                                ?Author $record
+                                ?Customer $record
                             ): string => $record ? $record->updated_at->diffForHumans() : '-'),
                     ])
                     ->columnSpan(1),
@@ -107,9 +107,9 @@ class AuthorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAuthors::route('/'),
-            'create' => Pages\CreateAuthor::route('/create'),
-            'edit' => Pages\EditAuthor::route('/{record}/edit'),
+            'index' => Pages\ListCustomers::route('/'),
+            'create' => Pages\CreateCustomer::route('/create'),
+            'edit' => Pages\EditCustomer::route('/{record}/edit'),
         ];
     }
 }

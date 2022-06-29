@@ -1,11 +1,11 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources\AuthorResource\Pages;
+namespace thianpri\FilamentSertifikat\Resources\CustomerResource\Pages;
 
 use Filament\Resources\Pages\ListRecords;
-use thianpri\FilamentLab\Resources\AuthorResource;
+use thianpri\FilamentSertifikat\Resources\CustomerResource;
 
-class ListAuthors extends ListRecords
+class ListCustomers extends ListRecords
 {
-    protected static string $resource = AuthorResource::class;
+    protected static string $resource = CustomerResource::class;
 }

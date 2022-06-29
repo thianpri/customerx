@@ -1,11 +1,11 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources\PostResource\Pages;
+namespace thianpri\FilamentSertifikat\Resources\JawabanResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
-use thianpri\FilamentLab\Resources\PostResource;
+use thianpri\FilamentSertifikat\Resources\JawabanResource;
 
-class EditPost extends EditRecord
+class EditJawaban extends EditRecord
 {
-    protected static string $resource = PostResource::class;
+    protected static string $resource = JawabanResource::class;
 }

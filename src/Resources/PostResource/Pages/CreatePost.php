@@ -1,11 +1,11 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources\PostResource\Pages;
+namespace thianpri\FilamentSertifikat\Resources\JawabanResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use thianpri\FilamentLab\Resources\PostResource;
+use thianpri\FilamentSertifikat\Resources\JawabanResource;
 
-class CreatePost extends CreateRecord
+class CreateJawaban extends CreateRecord
 {
-    protected static string $resource = PostResource::class;
+    protected static string $resource = JawabanResource::class;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Models;
+namespace thianpri\FilamentSertifikat\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,7 +14,7 @@ class Category extends Model
     /**
      * @var string
      */
-    protected $table = 'lab_categories';
+    protected $table = 'sertifikat_categories';
 
     /**
      * @var array<int, string>
@@ -33,9 +33,9 @@ class Category extends Model
         'is_visible' => 'boolean',
     ];
 
-    public function posts(): HasMany
+    public function jawaban(): HasMany
     {
-        return $this->hasMany(Post::class, 'lab_category_id', 'id');
+        return $this->hasMany(Jawaban::class, 'sertifikat_category_id', 'id');
     }
 
     public function scopeIsVisible(Builder $query)

@@ -12,7 +12,7 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('lab_categories', function (Blueprint $table) {
+        Schema::create('sertifikat_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
@@ -23,7 +23,7 @@ return new class () extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('lab_authors', function (Blueprint $table) {
+        Schema::create('sertifikat_customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -34,14 +34,14 @@ return new class () extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('lab_posts', function (Blueprint $table) {
+        Schema::create('sertifikat_jawaban', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lab_author_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('lab_category_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('sertifikat_customer_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('sertifikat_category_id')->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('excerpt')->nullable();
-            $table->string('banner')->nullable();
+            $table->string('file_ sertifikat ')->nullable();
             $table->longText('content');
             $table->date('published_at')->nullable();
             $table->timestamps();
@@ -55,8 +55,8 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('lab_categories');
-        Schema::dropIfExists('lab_authors');
-        Schema::dropIfExists('lab_posts');
+        Schema::dropIfExists('sertifikat_categories');
+        Schema::dropIfExists('sertifikat_customers');
+        Schema::dropIfExists('sertifikat_jawaban');
     }
 };

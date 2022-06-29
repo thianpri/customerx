@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources;
+namespace thianpri\FilamentSertifikat\Resources;
 
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -8,9 +8,9 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Support\Str;
-use thianpri\FilamentLab\Models\Category;
-use thianpri\FilamentLab\Resources\CategoryResource\Pages;
-use thianpri\FilamentLab\Traits\HasContentEditor;
+use thianpri\FilamentSertifikat\Models\Category;
+use thianpri\FilamentSertifikat\Resources\CategoryResource\Pages;
+use thianpri\FilamentSertifikat\Traits\HasContentEditor;
 
 class CategoryResource extends Resource
 {
@@ -18,11 +18,11 @@ class CategoryResource extends Resource
 
     protected static ?string $model = Category::class;
 
-    protected static ?string $slug = 'lab/categories';
+    protected static ?string $slug = 'sertifikat/categories';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $navigationGroup = 'Lab';
+    protected static ?string $navigationGroup = 'Sertifikat';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

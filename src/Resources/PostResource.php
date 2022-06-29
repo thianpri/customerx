@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Resources;
+namespace thianpri\FilamentSertifikat\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Components\SpatieTagsInput;
@@ -12,22 +12,22 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use function now;
-use thianpri\FilamentLab\Models\Post;
-use thianpri\FilamentLab\Resources\PostResource\Pages;
+use thianpri\FilamentSertifikat\Models\Jawaban;
+use thianpri\FilamentSertifikat\Resources\JawabanResource\Pages;
 
-use thianpri\FilamentLab\Traits\HasContentEditor;
+use thianpri\FilamentSertifikat\Traits\HasContentEditor;
 
-class PostResource extends Resource
+class JawabanResource extends Resource
 {
     use HasContentEditor;
 
-    protected static ?string $model = Post::class;
+    protected static ?string $model = Jawaban::class;
 
-    protected static ?string $slug = 'lab/posts';
+    protected static ?string $slug = 'sertifikat/jawaban';
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static ?string $navigationGroup = 'Lab';
+    protected static ?string $navigationGroup = 'Sertifikat';
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
@@ -47,7 +47,7 @@ class PostResource extends Resource
                         Forms\Components\TextInput::make('slug')
                             ->disabled()
                             ->required()
-                            ->unique(Post::class, 'slug', fn ($record) => $record),
+                            ->unique(Jawaban::class, 'slug', fn ($record) => $record),
 
                         Forms\Components\Textarea::make('excerpt')
                             ->rows(2)
@@ -57,7 +57,7 @@ class PostResource extends Resource
                                 'sm' => 2,
                             ]),
 
-                        Forms\Components\FileUpload::make('banner')
+                        Forms\Components\FileUpload::make('file_ sertifikat ')
                             ->image()
                             ->maxSize(5120)
                             ->imageCropAspectRatio('16:9')
@@ -68,12 +68,12 @@ class PostResource extends Resource
 
                         self::getContentEditor('content'),
 
-                        Forms\Components\BelongsToSelect::make('lab_author_id')
-                            ->relationship('author', 'name')
+                        Forms\Components\BelongsToSelect::make('sertifikat_customer_id')
+                            ->relationship('customer', 'name')
                             ->searchable()
                             ->required(),
 
-                        Forms\Components\BelongsToSelect::make('lab_category_id')
+                        Forms\Components\BelongsToSelect::make('sertifikat_category_id')
                             ->relationship('category', 'name')
                             ->searchable()
                             ->required(),
@@ -92,12 +92,12 @@ class PostResource extends Resource
                         Forms\Components\Placeholder::make('created_at')
                             ->label('Created at')
                             ->content(fn (
-                                ?Post $record
+                                ?Jawaban $record
                             ): string => $record ? $record->created_at->diffForHumans() : '-'),
                         Forms\Components\Placeholder::make('updated_at')
                             ->label('Last modified at')
                             ->content(fn (
-                                ?Post $record
+                                ?Jawaban $record
                             ): string => $record ? $record->updated_at->diffForHumans() : '-'),
                     ])
                     ->columnSpan(1),
@@ -109,12 +109,12 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('banner')
+                Tables\Columns\ImageColumn::make('file_ sertifikat ')
                     ->rounded(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('author.name')
+                Tables\Columns\TextColumn::make('customer.name')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
@@ -156,28 +156,28 @@ class PostResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePost::route('/create'),
-            'edit' => Pages\EditPost::route('/{record}/edit'),
+            'index' => Pages\ListJawabans::route('/'),
+            'create' => Pages\CreateJawaban::route('/create'),
+            'edit' => Pages\EditJawaban::route('/{record}/edit'),
         ];
     }
 
     protected static function getGlobalSearchEloquentQuery(): Builder
     {
-        return parent::getGlobalSearchEloquentQuery()->with(['author', 'category']);
+        return parent::getGlobalSearchEloquentQuery()->with(['customer', 'category']);
     }
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['title', 'slug', 'author.name', 'category.name'];
+        return ['title', 'slug', 'customer.name', 'category.name'];
     }
 
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         $details = [];
 
-        if ($record->author) {
-            $details['Author'] = $record->author->name;
+        if ($record->customer) {
+            $details['Customer'] = $record->customer->name;
         }
 
         if ($record->category) {

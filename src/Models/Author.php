@@ -1,6 +1,6 @@
 <?php
 
-namespace thianpri\FilamentLab\Models;
+namespace thianpri\FilamentSertifikat\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 
-class Author extends Model
+class Customer extends Model
 {
     use HasFactory;
 
     /**
      * @var string
      */
-    protected $table = 'lab_authors';
+    protected $table = 'sertifikat_customers';
 
     /**
      * @var array<int, string>
@@ -41,8 +41,8 @@ class Author extends Model
         return Attribute::get(fn () => asset(Storage::url($this->photo)));
     }
 
-    public function posts(): HasMany
+    public function jawaban(): HasMany
     {
-        return $this->hasMany(Post::class, 'lab_author_id');
+        return $this->hasMany(Jawaban::class, 'sertifikat_customer_id');
     }
 }
