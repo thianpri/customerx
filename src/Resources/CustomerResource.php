@@ -47,11 +47,11 @@ class CustomerResource extends Resource
                             ->columnSpan([
                                 'sm' => 2,
                             ]),
-                        self::getContentEditor('bio'),
+                        self::getContentEditor('alamat'),
                         Forms\Components\TextInput::make('no_hp')
-                            ->label('GitHub'),
+                            ->label('No HP'),
                         Forms\Components\TextInput::make('no_identitas')
-                            ->label('Twitter'),
+                            ->label('NIK'),
                     ])
                     ->columns([
                         'sm' => 2,
@@ -88,9 +88,9 @@ class CustomerResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('no_hp')
-                    ->label('GitHub'),
+                    ->label('No HP'),
                 Tables\Columns\TextColumn::make('no_identitas')
-                    ->label('Twitter'),
+                    ->label('NIK'),
             ])
             ->filters([
                 //

@@ -23,6 +23,6 @@ class SertifikatServiceProvider extends PluginServiceProvider
             ->name('filament-sertifikat')
             ->hasConfigFile()
             ->hasCommand(InstallCommand::class)
-            ->hasMigration('create_filament_sertifikat_tables');
+            ->hasMigration('create_filament_sertifikat_tablesx');
     }
 }

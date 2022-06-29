@@ -24,7 +24,7 @@ class Customer extends Model
         'name',
         'email',
         'photo',
-        'bio',
+        'alamat',
         'no_hp',
         'no_identitas',
     ];
