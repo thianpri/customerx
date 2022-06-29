@@ -20,7 +20,7 @@ class SertifikatServiceProvider extends PluginServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-sertifikat')
+            ->name('filament-sertifikatx')
             ->hasConfigFile()
             ->hasCommand(InstallCommand::class)
             ->hasMigration('create_filament_sertifikat_tablesx');
