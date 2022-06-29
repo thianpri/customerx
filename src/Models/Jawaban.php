@@ -46,9 +46,9 @@ class Jawaban extends Model
         'file_sertifikat_url',
     ];
 
-    public function file_ sertifikat Url(): Attribute
+    public function file_sertifikat Url(): Attribute
     {
-        return Attribute::get(fn () => asset(Storage::url($this->file_ sertifikat )));
+        return Attribute::get(fn () => asset(Storage::url($this->file_sertifikat )));
     }
 
     public function scopePublished(Builder $query)
