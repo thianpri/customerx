@@ -1,13 +1,13 @@
 {
-    "name": "thianpri/filament-lab",
-    "description": "Filament Lab Builder",
+    "name": "thianpri/filament-sertifikat",
+    "description": "Filament Sertifikat Builder",
     "keywords": [
         "thianpri",
         "laravel",
-        "filament-lab",
+        "filament-sertifikat",
         "lab"
     ],
-    "homepage": "https://github.com/thianpri/filament-lab",
+    "homepage": "https://github.com/thianpri/filament-sertifikat",
     "license": "MIT",
     "authors": [
         {
@@ -32,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "thianpri\\FilamentLab\\": "src"
+            "thianpri\\FilamentSertifikat\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "thianpri\\FilamentLab\\Tests\\": "tests",
-            "thianpri\\FilamentLab\\Tests\\Database\\Factories\\": "tests/database/factories"
+            "thianpri\\FilamentSertifikat\\Tests\\": "tests",
+            "thianpri\\FilamentSertifikat\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
     },
     "scripts": {
@@ -55,7 +55,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "thianpri\\FilamentLab\\LabServiceProvider"
+                "thianpri\\FilamentSertifikat\\SertifikatServiceProvider"
             ]
         }
     },
