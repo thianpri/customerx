@@ -43,7 +43,7 @@ class Jawaban extends Model
      * @var array<string>
      */
     protected $appends = [
-        'file_ sertifikat _url',
+        'file_sertifikat_url',
     ];
 
     public function file_ sertifikat Url(): Attribute
