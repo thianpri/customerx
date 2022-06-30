@@ -46,7 +46,7 @@ class Jawaban extends Model
         'filex_url',
     ];
 
-    public function file_sertifikatUrl(): Attribute
+    public function filexUrl(): Attribute
     {
         return Attribute::get(fn () => asset(Storage::url($this->filex)));
     }
