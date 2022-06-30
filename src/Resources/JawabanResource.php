@@ -51,13 +51,13 @@ class JawabanResource extends Resource
 
                         Forms\Components\Textarea::make('excerpt')
                             ->rows(2)
-                            ->minLength(50)
+                            ->minLength(20)
                             ->maxLength(1000)
                             ->columnSpan([
                                 'sm' => 2,
                             ]),
 
-                        Forms\Components\FileUpload::make('file_ sertifikat ')
+                        Forms\Components\FileUpload::make('filex')
                             ->image()
                             ->maxSize(5120)
                             ->imageCropAspectRatio('16:9')
@@ -79,7 +79,7 @@ class JawabanResource extends Resource
                             ->required(),
 
                         Forms\Components\DatePicker::make('published_at')
-                            ->label('Published Date'),
+                            ->label('Tanggal Terbit'),
                         SpatieTagsInput::make('tags')
                             ->required(),
                     ])
@@ -121,7 +121,7 @@ class JawabanResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('published_at')
-                    ->label('Published Date')
+                    ->label('Tanggal Terbit')
                     ->date(),
             ])
             ->filters([
