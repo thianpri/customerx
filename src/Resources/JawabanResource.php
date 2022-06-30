@@ -58,9 +58,10 @@ class JawabanResource extends Resource
                             ]),
 
                         Forms\Components\FileUpload::make('filex')
-                            ->image()
-                            ->maxSize(5120)
-                            ->imageCropAspectRatio('16:9')
+                            //->image()
+							->acceptedFileTypes(['application/pdf'])
+                            ->maxSize(15120)
+                            //->imageCropAspectRatio('16:9')
                             ->directory('blog')
                             ->columnSpan([
                                 'sm' => 2,
