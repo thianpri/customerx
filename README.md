@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/thianpri/filament-sertifikat/Check%20&%20fix%20styling?label=code%20style)](https://github.com/thianpri/filament-sertifikat/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/thianpri/filament-sertifikat.svg?style=flat-square)](https://packagist.org/packages/thianpri/filament-sertifikat)
 
-A faceless blog content manager with configurable richtext and markdown support for filament admin panel.
+Simple laboratory manager with configurable richtext and markdown support for filament admin panel.
 
 ![](./art/screen1.png)
 
